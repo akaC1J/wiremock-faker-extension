@@ -1,0 +1,12 @@
+docker build -t wiremock-debug .
+
+docker run --rm --name wiremock-debug `
+  -p 8080:8080 `
+  -p 5005:5005 `
+  -e JAVA_OPTS="-Dfaker.locale=ru-RU -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005" `
+  -v "${PWD}\manual-test\mappings:/home/wiremock/mappings" `
+  wiremock-debug `
+  --global-response-templating `
+  --verbose
+
+

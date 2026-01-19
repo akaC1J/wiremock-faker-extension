@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/user"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "id": "{{ random 'numerify \\'########\\'' }}",
+      "firstName": "{{ random 'Name.firstName' }}",
+      "lastName": "{{ random 'Name.lastName' }}",
+      "email": "{{ random 'Internet.emailAddress' }}",
+      "age": "{{ random 'number.number_between \\'18\\',\\'40\\'' }}"
+    },
+    "transformers": ["response-template"]}
+}
