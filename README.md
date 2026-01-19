@@ -17,7 +17,7 @@ For Maven users:
 <dependency>
     <groupId>org.wiremock.extensions</groupId>
     <artifactId>wiremock-faker-extension</artifactId>
-    <version>0.1.1</version>
+    <version>1.0.0-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -25,7 +25,22 @@ For Gradle users:
 
 ```groovy
 dependencies {
-    implementation 'org.wiremock.extensions:wiremock-faker-extension-standalone:0.1.1'
+    implementation 'org.wiremock.extensions:wiremock-faker-extension:1.0.0-SNAPSHOT'
+}
+```
+
+If you are developing locally, you can publish the extension to your local Maven repository:
+
+```bash
+./gradlew publishToMavenLocal
+```
+
+And then use it in your project by adding `mavenLocal()` to your repositories:
+
+```groovy
+repositories {
+    mavenLocal()
+    mavenCentral()
 }
 ```
 
