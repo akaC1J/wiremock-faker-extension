@@ -17,7 +17,7 @@ For Maven users:
 <dependency>
     <groupId>org.wiremock.extensions</groupId>
     <artifactId>wiremock-faker-extension</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
@@ -25,22 +25,7 @@ For Gradle users:
 
 ```groovy
 dependencies {
-    implementation 'org.wiremock.extensions:wiremock-faker-extension:1.0.0-SNAPSHOT'
-}
-```
-
-If you are developing locally, you can publish the extension to your local Maven repository:
-
-```bash
-./gradlew publishToMavenLocal
-```
-
-And then use it in your project by adding `mavenLocal()` to your repositories:
-
-```groovy
-repositories {
-    mavenLocal()
-    mavenCentral()
+    implementation 'org.wiremock.extensions:wiremock-faker-extension-standalone:0.2.0'
 }
 ```
 
@@ -62,6 +47,18 @@ new WireMockServer(wireMockConfig().extensions(RandomExtension.class));
 
 This will generate random first names in the `en-US` locale for every request.
 
+You can optionally add:
+* the `seed` parameter to always generate the same value for the same seed
+* the `locale` parameter to generate values in a specific locale
+
+{% raw %}
+```handle
+
+{% raw %}
+```handlebars
+{{ random 'Name.first_name' seed=1234 locale='es' }}
+```
+%}
 
 ### Technical notes
 This library brings `net.datafaker:datafaker` as transitive dependency, which may result in conflicts at building time. 
