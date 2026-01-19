@@ -52,15 +52,30 @@ You can optionally add:
 * the `locale` parameter to generate values in a specific locale
 
 {% raw %}
-```handle
-
-{% raw %}
 ```handlebars
 {{ random 'Name.first_name' seed=1234 locale='es' }}
 ```
-%}
+{% endraw %}
 
-### Technical notes
+## Docker
+
+This project includes a `Dockerfile` that provides a WireMock image with the `faker-extension` pre-installed.
+
+### Building the image
+
+```bash
+docker build -t wiremock-faker .
+```
+
+### Running the image
+
+```bash
+docker run -it --rm -p 8080:8080 wiremock-faker
+```
+
+The image is based on the official WireMock 3 image. The extension is automatically loaded from the `/var/wiremock/extensions` directory, and global response templating is enabled by default.
+
+## Technical notes
 This library brings `net.datafaker:datafaker` as transitive dependency, which may result in conflicts at building time. 
 If that's the case, the `net.datafaker:datafaker` dependency needs to be excluded. 
 

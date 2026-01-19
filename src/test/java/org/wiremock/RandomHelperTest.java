@@ -45,7 +45,7 @@ public class RandomHelperTest extends HandlebarsHelperTestBase {
       value = {
         ", , Herb",
         ", es, José María",
-        ", fr_QC, Clément",
+        ", fr-QC, Clément",
         "1, , Donny",
         "hello, , Nickie",
         "test, de, Franz"
